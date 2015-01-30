@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Responsive Newsletter by Flyaway87</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Responsive Newsletter</h1>
+        <h2>A reponsive Newsletter that works in all clients (even Gmail App)</h2>
+        <a href="https://github.com/Flyaway87/responsive-newsletter" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Tablets and smartphones have surpassed the pc for internet browsing and reading emails. Nothing new there. Many guides and articles have already been published describing several techniques to build responsive newsletters, suitable for optimal reading on all platforms, including smartphones.<br>
+Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of <a href="#Useful%20Tutorials">these three guides </a>, which I studied in depth and fused together to create something new.</p>
+
+<p>So, let's take a look at the foundations of the framework:</p>
+
+<pre><code>&lt;!--[if (gte mso 9)|(IE)]&gt;
+&lt;table width="600" align="center" cellpadding="0" cellspacing="0" border="0"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+&lt;![endif]--&gt;
+
+  &lt;table width="100%" bgcolor="#f7f9fa" cellspacing="0" cellpadding="0" border="0"&gt;
+&lt;tr&gt;
+  &lt;td align="center"&gt;
+
+    &lt;!-- ALL CONTENT GOES HERE --&gt;
+
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;!--[if (gte mso 9)|(IE)]&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;![endif]--&gt;
+</code></pre>
+
+<p>As you can see, the master table is wrapped inside another table with a fixed width (600 px), that will be rendered only by Outlook and other clients that have the Internet Explorer rendering engine. Nothing so special here, so let's move on.   </p>
+
+<h2>
+<a id="the-content-single-column-text" class="anchor" href="#the-content-single-column-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: single column text</h2>
+
+<pre><code>&lt;table class="container" bgcolor="#FFFFFF" align="center" cellspacing="0" cellpadding="0" border="0"&gt;
+  &lt;tr&gt;
+    &lt;td class="content"&gt;
+      &lt;div class="text"&gt;
+      &lt;!--YOUR TEXT GOES HERE --&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor="#FFFFFF" height="20"&gt;&amp;nbsp;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>Very simple, right? Take note of the "container", "content", and "text" classes, I'll discuss them later in the CSS part. If you're too impatient, <a href="#The%20CSS">click here</a>.   </p>
+
+<h2>
+<a id="the-content-single-column-image" class="anchor" href="#the-content-single-column-image" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: single column image</h2>
+
+<pre><code>&lt;table class="container" align="center" cellspacing="0" cellpadding="0" border="0"&gt;
+  &lt;tr&gt;
+    &lt;td bgcolor="#ffffff" height="10"&gt;&amp;nbsp;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt; 
+    &lt;td&gt;
+      &lt;table width="100%"&gt;
+    &lt;tr&gt;
+      &lt;td class="img-container"&gt;
+
+        &lt;center&gt;
+          &lt;img src="path-to image" class="img-responsive" /&gt;
+        &lt;/center&gt;
+
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>There is nothing particularly complex here either. To see the attributes for classes "img-container" and "img-responsive", <a href="#The%20CSS">click here</a>. </p>
+
+<h2>
+<a id="the-content-two-columns" class="anchor" href="#the-content-two-columns" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: two columns</h2>
+
+<pre><code>&lt;table class="container" width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0"&gt;
+    &lt;tr&gt;
+    &lt;td class="content"&gt;
+
+        &lt;!--[if (gte mso 9)|(IE)]&gt;
+        &lt;table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+        &lt;![endif]--&gt;
+
+        &lt;div class="offer-container"&gt;
+        &lt;table class="offer-table"&gt;
+            &lt;tr&gt;
+            &lt;td class="offer-text"&gt;
+              &lt;!-- SOME TEXT --&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+            &lt;td&gt;
+                &lt;table class="button-table" border="0" cellspacing="0" cellpadding="0" align="center"&gt;
+                &lt;tr&gt;
+                    &lt;td class="button"&gt;
+                    &lt;a href="#"&gt;This is a button&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;/div&gt;
+
+        &lt;!--[if (gte mso 9)|(IE)]&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+        &lt;![endif]--&gt;
+
+        &lt;div class="offer-container"&gt;
+
+        &lt;!-- SAME CONTENT AS ABOVE --&gt;
+
+        &lt;/div&gt;
+
+        &lt;!--[if (gte mso 9)|(IE)]&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;![endif]--&gt;
+    &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>OK, here things start to get a bit more interesting and complex. In this part we're dealing with two columns that are next to each other in all resolutions large enough, whereas on smartphones they're positioned one below the other.<br>
+For this part of the explanation, I prefer to further analyze the code. Let's start with:</p>
+
+<pre><code>&lt;!--[if (gte mso 9)|(IE)]&gt;
+  &lt;table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+&lt;![endif]--&gt;
+
+    &lt;div class="offer-container"&gt; &lt;/div&gt;
+
+&lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+&lt;![endif]--&gt;
+
+      &lt;div class="offer-container"&gt; &lt;/div&gt;
+
+&lt;!--[if (gte mso 9)|(IE)]&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;![endif]--&gt;
+</code></pre>
+
+<p>As we have already done at the beginning, here we use conditional comments to wrap two divs "offer-container" within a table with 100% width, only rendered by Outlook and other clients that use IE for rendering. Each div is inside a td tag. In this way we get an Outlook-friendly cage for our two columns.   </p>
+
+<p>Let's now take a look inside the div "offer-container":</p>
+
+<pre><code>&lt;div class="offer-container"&gt;
+  &lt;table class="offer-table"&gt;
+    &lt;tr&gt;
+
+      &lt;td class="offer-text"&gt;
+    &lt;!-- SOME TEXT --&gt;
+      &lt;/td&gt;
+
+    &lt;/tr&gt;
+    &lt;tr&gt;
+
+      &lt;td&gt;
+    &lt;table class="button-table" border="0" cellspacing="0" cellpadding="0" align="center"&gt;
+      &lt;tr&gt;
+        &lt;td class="button"&gt;
+          &lt;a href="#"&gt;This is a button&lt;/a&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+      &lt;/td&gt;
+
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>This part is a little simpler: inside "offer-container" there's a table with the "offer-table" class. We see two tr tags, one that contains a td "offert-text" tag, in which the text is inserted, while the other tr tag we add a link in the form of a button.
+To create this button, this link should be inserted into a td tag with class "button", which is contained within a table "button-table".   </p>
+
+<p>As always, the CSS do all the magic, so if you want to learn more about these classes, please <a href="#The%20CSS">click here</a></p>
+
+<h2>
+<a id="the-content-contacts" class="anchor" href="#the-content-contacts" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: contacts</h2>
+
+<pre><code>&lt;div class="contacts-container"&gt;
+    &lt;table class="contacts-table" width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+        &lt;table class="contacts-table" border="0" cellspacing="0" cellpadding="0" align="center" width="90%"&gt;
+            &lt;tr&gt;
+            &lt;td class="social"&gt;
+                &lt;h5&gt;Follow us on:&lt;/h5&gt;
+                &lt;p&gt;
+                &lt;a href="#" class="fb"&gt;&amp;nbsp;&amp;nbsp;Facebook&amp;nbsp;&amp;nbsp;&lt;/a&gt;
+                &lt;a href="#" class="tw"&gt;&amp;nbsp;&amp;nbsp;Twitter&amp;nbsp;&amp;nbsp;&lt;/a&gt;
+                &lt;a href="#" class="gp"&gt;&amp;nbsp;&amp;nbsp;Google+&amp;nbsp;&amp;nbsp;&lt;/a&gt;
+                &lt;/p&gt;
+            &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class="contacts-container"&gt;
+    &lt;table class="contacts-table" width="100%"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+          &lt;table class="contacts-table" border="0" cellspacing="0" cellpadding="0" align="center" width="90%"&gt;
+            &lt;tr&gt;
+            &lt;td class="address"&gt;
+                &lt;h5&gt;Company name&lt;/h5&gt;                                               
+                &lt;p&gt;company address&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p><strong>IMPORTANT:</strong> this part follows the same logic as the previous one, so the two divs "contacts-container" are simply substitutes for "offer-container". I avoided repeating tables and conditional comments to avoid repeating the same pieces of code during this explanation.   </p>
+
+<p>It's a very intuitive part: the two div container "contacts" contains the link to social networks and the address of the company, labeled "social classes" and "address".
+At this point there is an important thing to note: the tables that contain the </p> with "social classes" and "address" have a 90% width, to create a margin-left and margin-right in the responsive version.
+
+<h1>
+<a id="the-css" class="anchor" href="#the-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>The CSS</h1>
+
+<p>Now this is where the magic happens: below I'll show you the most important and required CSS classes</p>
+
+<pre><code>body {
+    webkit-text-size-adjust:none; /* disables automatic text size adjust */
+    -ms-text-size-adjust: 100%;   /* stops devices from changing text sizes on their defaults */
+}
+</code></pre>
+
+<h2>
+<a id="the-content-single-column-text--image" class="anchor" href="#the-content-single-column-text--image" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: single column text &amp; image</h2>
+
+<pre><code>.container {
+    max-width: 600px; /* max width of the newsletter */
+}
+
+.img-responsive {
+    display: block; 
+    width: 100%; /* images scale with the viewport */
+}
+
+.content {
+    text-align: center; 
+    vertical-align: top; 
+    font-size: 0; /* fix a spacing bug where space can sometimes appear between inline-block elements */
+}
+
+.img-container center {
+    margin: 0 auto 10px; /* sets margins for full-width images */
+}
+
+.text {
+    max-width: 560px;   /* sets a max-width inferior to 600px and padding left &amp; right */ 
+    padding: 0 20px;    /* in order to mantain a sort of spacing from borders of the newsletter */    
+}
+</code></pre>
+
+<h2>
+<a id="the-content-two-columns-css" class="anchor" href="#the-content-two-columns-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: two columns css</h2>
+
+<pre><code>.offer-container {
+    width: 280px; /* sets a width less than 300 pixels to keep the distance from the borders of the newsletter */
+    display: inline-block; 
+    vertical-align: top; 
+    border:5px solid #ffffff;   /* add an extra border to separate the two boxes */
+}
+
+.offer-table {
+    width: 100%; 
+    background: #efefef;
+}
+</code></pre>
+
+<h2>
+<a id="media-queries" class="anchor" href="#media-queries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Media Queries</h2>
+
+<pre><code>@media screen and (min-width: 601px) {
+    .container {
+    width: 600px!important; /* Apple Mail doesn't respect max-width, so this media query limits "container" table's size on desktop */
+    }
+}
+</code></pre>
+
+<h1>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known issues:</h1>
+
+<h2>
+<a id="in-outlook-2007-2010-and-2013" class="anchor" href="#in-outlook-2007-2010-and-2013" aria-hidden="true"><span class="octicon octicon-link"></span></a>In Outlook 2007, 2010 and 2013</h2>
+
+<ul>
+<li>social buttons don't fit the with of the container, so they are displayed one next to the other instead of one below the other.</li>
+<li>It seems that these clients add a little extra margin-right to the images inside the two colums. Howewer, this margin doesn't cause any malfunction.</li>
+</ul>
+
+<h1>
+<a id="useful-tutorials" class="anchor" href="#useful-tutorials" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Tutorials</h1>
+
+<ul>
+<li><a href="http://jackosborne.com/articles/responsive-email-design/">JacK Osborne: Responsive Email Design</a></li>
+<li><a href="https://www.campaignmonitor.com/blog/post/4240/creating-a-centred-responsive-design-without-media-queries">Campaign Monitor: Creating a centered, responsive design without media queries</a></li>
+<li><a href="http://zurb.com/ink/">Zurb: Ink Framework</a></li>
+</ul>
+
+<h1>
+<a id="useful-tools" class="anchor" href="#useful-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Tools</h1>
+
+<ul>
+<li><a href="http://zurb.com/ink/inliner.php">Zurb: Ink CSS Inliner</a></li>
+</ul>
+
+<p><strong>This framework has been tested on Litmus</strong></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Flyaway87/responsive-newsletter/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Flyaway87/responsive-newsletter/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Flyaway87/responsive-newsletter"></a> is maintained by <a href="https://github.com/Flyaway87">Flyaway87</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
