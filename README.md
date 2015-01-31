@@ -231,7 +231,7 @@ As always, the CSS do all the magic, so if you want to learn more about these cl
 **IMPORTANT:** this part follows the same logic as the previous one, so the two divs "contacts-container" are simply substitutes for "offer-container". I avoided repeating tables and conditional comments to avoid repeating the same pieces of code during this explanation.   
 
 It's a very intuitive part: the two div container "contacts" contains the link to social networks and the address of the company, labeled "social classes" and "address".
-At this point there is an important thing to note: the tables that contain the <td> with "social classes" and "address" have a 90% width, to create a margin-left and margin-right in the responsive version.
+At this point there is an important thing to note: the tables that contain the td tag with "social" and "address" classes have a 90% width, to create a margin-left and margin-right in the responsive version.
 
 # The CSS
 
