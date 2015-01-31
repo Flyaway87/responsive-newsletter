@@ -3,6 +3,9 @@
 Tablets and smartphones have surpassed the pc for internet browsing and reading emails. Nothing new there. Many guides and articles have already been published describing several techniques to build responsive newsletters, suitable for optimal reading on all platforms, including smartphones.  
 Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of the three guides at the bottom of this page, which I studied in depth and fused together to create something new.
 
+**Before we start, let's keep in mind that this framework has separated HTML and CSS files to make the code more easy to be understood and to be modified, but you will have to use inline style to get it work.
+In the "Useful Tools" you will find an online software provided by Zurb that transforms the CSS file into inline style.**
+
 So, let's take a look at the foundations of the framework:
 
 <body>
@@ -194,7 +197,7 @@ As always, the CSS do all the magic, so if you want to learn more about these cl
 			<table class="contacts-table" border="0" cellspacing="0" cellpadding="0" align="center" width="90%">
 			    <tr>
 				<td class="social">
-				    <h5>Seguici su:</h5>
+				    <h5>Follow us on:</h5>
 				    <p>
 					<a href="#" class="fb">&nbsp;&nbsp;Facebook&nbsp;&nbsp;</a>
 					<a href="#" class="tw">&nbsp;&nbsp;Twitter&nbsp;&nbsp;</a>
@@ -305,9 +308,9 @@ Now this is where the magic happens: below I'll show you the most important and 
 * It seems that these clients add a little extra margin-right to the images inside the two colums. Howewer, this margin doesn't cause any malfunction.
 
 # Useful Tutorials
-* [JacK Osborne: Responsive Email Design](http://jackosborne.com/articles/responsive-email-design/)
+* [Jack Osborne: Responsive Email Design](http://jackosborne.com/articles/responsive-email-design/)
 * [Campaign Monitor: Creating a centered, responsive design without media queries](https://www.campaignmonitor.com/blog/post/4240/creating-a-centred-responsive-design-without-media-queries)
 * [Zurb: Ink Framework](http://zurb.com/ink/)
 
 # Useful Tools
-* [Zurb: Ink CSS Inliner](http://zurb.com/ink/inliner.php)
+* [Zurb: Ink CSS Inliner](http://zurb.com/ink/inliner.php) -  This tool convert CSS to inline style.
