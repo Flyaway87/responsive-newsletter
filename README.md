@@ -1,7 +1,7 @@
 # RESPONSIVE NEWSLETTER
 
 Tablets and smartphones have surpassed the pc for internet browsing and reading emails. Nothing new there. Many guides and articles have already been published describing several techniques to build responsive newsletters, suitable for optimal reading on all platforms, including smartphones.  
-Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of [these three guides](#Useful Tutorials), which I studied in depth and fused together to create something new.
+Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of the three guides at the bottom of this page, which I studied in depth and fused together to create something new.
 
 So, let's take a look at the foundations of the framework:
 
@@ -47,7 +47,7 @@ As you can see, the master table is wrapped inside another table with a fixed wi
 	  </tr>
 	</table>
 
-Very simple, right? Take note of the "container", "content", and "text" classes, I'll discuss them later in the CSS part. If you're too impatient, [click here](#The CSS).   
+Very simple, right? Take note of the "container", "content", and "text" classes, I'll discuss them later in the CSS part. If you're too impatient, scroll down to the CSS explanation.   
 
 ## The Content: single column image 
 
@@ -72,7 +72,7 @@ Very simple, right? Take note of the "container", "content", and "text" classes,
 	  </tr>
 	</table>
 
-There is nothing particularly complex here either. To see the attributes for classes "img-container" and "img-responsive", [click here](#The CSS).   
+There is nothing particularly complex here either. To see the attributes for classes "img-container" and "img-responsive", go to the CSS part.   
 
 ## The Content: two columns
 
@@ -183,7 +183,7 @@ Let's now take a look inside the div "offer-container":
 This part is a little simpler: inside "offer-container" there's a table with the "offer-table" class. We see two <tr>, one that contains a <td> "offert-text", in which the text is inserted, while the other <tr> we add a link in the form of a button.
 To create this button, this link should be inserted into a <td> with class "button", which is contained within a table "button-table".   
 
-As always, the CSS do all the magic, so if you want to learn more about these classes, please [click here](#The CSS). 
+As always, the CSS do all the magic, so if you want to learn more about these classes, please see the CSS explanation. 
 
 ## The Content: contacts
 
@@ -225,7 +225,7 @@ As always, the CSS do all the magic, so if you want to learn more about these cl
 	    </table>
 	</div>
 
-IMPORTANT: this part follows the same logic as the previous one, so the two divs "contacts-container" are simply substitutes for "offer-container". I avoided repeating tables and conditional comments to avoid repeating the same pieces of code during this explanation.   
+**IMPORTANT:** this part follows the same logic as the previous one, so the two divs "contacts-container" are simply substitutes for "offer-container". I avoided repeating tables and conditional comments to avoid repeating the same pieces of code during this explanation.   
 
 It's a very intuitive part: the two div container "contacts" contains the link to social networks and the address of the company, labeled "social classes" and "address".
 At this point there is an important thing to note: the tables that contain the <td> with "social classes" and "address" have a 90% width, to create a margin-left and margin-right in the responsive version.
@@ -286,6 +286,17 @@ Media Queries
 		width: 600px!important;	/* Apple Mail doesn't respect max-width, so this media query limits "container" table's size on desktop */
 	    }
 	}
+	
+# Compatibility
+Apple Mail (Desktop)
+Apple Mail (iOS)
+Outlook 2000, 2002, 2003, 2007, 2010, 2011, 2013
+Thunderbird
+Android
+Gmail (Desktop)
+Gmail (Mobile, iOS, Android)
+Outlook.com
+Yahoo! Mail
 
 # Known issues:
 
