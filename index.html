@@ -28,307 +28,355 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>Tablets and smartphones have surpassed the pc for internet browsing and reading emails. Nothing new there. Many guides and articles have already been published describing several techniques to build responsive newsletters, suitable for optimal reading on all platforms, including smartphones.<br>
-Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of <a href="#Useful%20Tutorials">these three guides </a>, which I studied in depth and fused together to create something new.</p>
+          <h1>
+<a id="responsive-newsletter" class="anchor" href="#responsive-newsletter" aria-hidden="true"><span class="octicon octicon-link"></span></a>RESPONSIVE NEWSLETTER</h1>
+
+<p>Tablets and smartphones have surpassed the pc for internet browsing and reading emails. Nothing new there. Many guides and articles have already been published describing several techniques to build responsive newsletters, suitable for optimal reading on all platforms, including smartphones.<br>
+Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of the three guides at the bottom of this page, which I studied in depth and fused together to create something new.</p>
+
+<p><strong>Table of Contents</strong> </p>
+
+<ul>
+<li>
+<a href="#responsive-newsletter">RESPONSIVE NEWSLETTER</a>
+
+<ul>
+<li><a href="#the-content-single-column-text">The Content: single column text</a></li>
+<li><a href="#the-content-single-column-image">The Content: single column image</a></li>
+<li><a href="#the-content-two-columns">The Content: two columns</a></li>
+<li><a href="#the-content-contacts">The Content: contacts</a></li>
+</ul>
+</li>
+<li>
+<a href="#the-css">The CSS</a>
+
+<ul>
+<li><a href="#the-content-single-column-text-&amp;-image">The Content: single column text &amp; image</a></li>
+<li><a href="#the-content-two-columns-1">The Content: two columns</a></li>
+<li><a href="#media-queries">Media Queries</a></li>
+</ul>
+</li>
+<li><a href="#compatibility-tested-with-litmus">Compatibility (tested with Litmus)</a></li>
+<li>
+<a href="#known-issues">Known issues:</a>
+
+<ul>
+<li><a href="#in-outlook-2007-2010-and-2013">In Outlook 2007, 2010 and 2013</a></li>
+</ul>
+</li>
+<li><a href="#useful-tutorials">Useful Tutorials</a></li>
+<li><a href="#useful-tools">Useful Tools</a></li>
+</ul>
+
+<p><strong>Before we start, let's keep in mind that this framework has separated HTML and CSS files to make the code more easy to be understood and to be modified, but you will have to use inline style to get it work.
+In the "Useful Tools" section you will find an online software provided by Zurb that transforms the CSS file into inline style.</strong></p>
 
 <p>So, let's take a look at the foundations of the framework:</p>
 
-<pre><code>&lt;!--[if (gte mso 9)|(IE)]&gt;
-&lt;table width="600" align="center" cellpadding="0" cellspacing="0" border="0"&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-&lt;![endif]--&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">body</span>&gt;
 
-  &lt;table width="100%" bgcolor="#f7f9fa" cellspacing="0" cellpadding="0" border="0"&gt;
-&lt;tr&gt;
-  &lt;td align="center"&gt;
+    <span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">    &lt;table width="600" align="center" cellpadding="0" cellspacing="0" border="0"&gt;</span>
+<span class="pl-c">        &lt;tr&gt;</span>
+<span class="pl-c">            &lt;td&gt;</span>
+<span class="pl-c">    &lt;![endif]--&gt;</span>
 
-    &lt;!-- ALL CONTENT GOES HERE --&gt;
+      &lt;<span class="pl-ent">table</span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span> <span class="pl-e">bgcolor</span>=<span class="pl-s1"><span class="pl-pds">"</span>#f7f9fa<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
+      &lt;<span class="pl-ent">td</span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span>&gt;
 
-  &lt;/td&gt;
-&lt;/tr&gt;
+        <span class="pl-c">&lt;!-- ALL CONTENT GOES HERE --&gt;</span>
 
-&lt;!--[if (gte mso 9)|(IE)]&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-&lt;![endif]--&gt;
-</code></pre>
+      &lt;/<span class="pl-ent">td</span>&gt;
+    &lt;/<span class="pl-ent">tr</span>&gt;
+
+    <span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">            &lt;/td&gt;</span>
+<span class="pl-c">        &lt;/tr&gt;</span>
+<span class="pl-c">    &lt;/table&gt;</span>
+<span class="pl-c">    &lt;![endif]--&gt;</span>
+
+&lt;/<span class="pl-ent">body</span>&gt;</pre></div>
 
 <p>As you can see, the master table is wrapped inside another table with a fixed width (600 px), that will be rendered only by Outlook and other clients that have the Internet Explorer rendering engine. Nothing so special here, so let's move on.   </p>
 
 <h2>
 <a id="the-content-single-column-text" class="anchor" href="#the-content-single-column-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: single column text</h2>
 
-<pre><code>&lt;table class="container" bgcolor="#FFFFFF" align="center" cellspacing="0" cellpadding="0" border="0"&gt;
-  &lt;tr&gt;
-    &lt;td class="content"&gt;
-      &lt;div class="text"&gt;
-      &lt;!--YOUR TEXT GOES HERE --&gt;
-      &lt;/div&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td bgcolor="#FFFFFF" height="20"&gt;&amp;nbsp;&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
-</code></pre>
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> <span class="pl-e">bgcolor</span>=<span class="pl-s1"><span class="pl-pds">"</span>#FFFFFF<span class="pl-pds">"</span></span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">tr</span>&gt;
+    &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>&gt;
+      <span class="pl-c">&lt;!--YOUR TEXT GOES HERE --&gt;</span>
+      &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">td</span>&gt;
+  &lt;/<span class="pl-ent">tr</span>&gt;
+  &lt;<span class="pl-ent">tr</span>&gt;
+    &lt;<span class="pl-ent">td</span> <span class="pl-e">bgcolor</span>=<span class="pl-s1"><span class="pl-pds">"</span>#FFFFFF<span class="pl-pds">"</span></span> <span class="pl-e">height</span>=<span class="pl-s1"><span class="pl-pds">"</span>20<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;nbsp;</span>&lt;/<span class="pl-ent">td</span>&gt;
+  &lt;/<span class="pl-ent">tr</span>&gt;
+&lt;/<span class="pl-ent">table</span>&gt;</pre></div>
 
-<p>Very simple, right? Take note of the "container", "content", and "text" classes, I'll discuss them later in the CSS part. If you're too impatient, <a href="#The%20CSS">click here</a>.   </p>
+<p>Very simple, right? Take note of the "container", "content", and "text" classes, I'll discuss them later in the CSS part. If you're too impatient, scroll down to the CSS explanation.   </p>
 
 <h2>
 <a id="the-content-single-column-image" class="anchor" href="#the-content-single-column-image" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: single column image</h2>
 
-<pre><code>&lt;table class="container" align="center" cellspacing="0" cellpadding="0" border="0"&gt;
-  &lt;tr&gt;
-    &lt;td bgcolor="#ffffff" height="10"&gt;&amp;nbsp;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt; 
-    &lt;td&gt;
-      &lt;table width="100%"&gt;
-    &lt;tr&gt;
-      &lt;td class="img-container"&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">tr</span>&gt;
+    &lt;<span class="pl-ent">td</span> <span class="pl-e">bgcolor</span>=<span class="pl-s1"><span class="pl-pds">"</span>#ffffff<span class="pl-pds">"</span></span> <span class="pl-e">height</span>=<span class="pl-s1"><span class="pl-pds">"</span>10<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;nbsp;</span>&lt;/<span class="pl-ent">td</span>&gt;
+  &lt;/<span class="pl-ent">tr</span>&gt;
+  &lt;<span class="pl-ent">tr</span>&gt; 
+    &lt;<span class="pl-ent">td</span>&gt;
+      &lt;<span class="pl-ent">table</span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
+      &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>img-container<span class="pl-pds">"</span></span>&gt;
 
-        &lt;center&gt;
-          &lt;img src="path-to image" class="img-responsive" /&gt;
-        &lt;/center&gt;
+        &lt;<span class="pl-ent">center</span>&gt;
+          &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>path-to image<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>img-responsive<span class="pl-pds">"</span></span> /&gt;
+        &lt;/<span class="pl-ent">center</span>&gt;
 
-      &lt;/td&gt;
-    &lt;/tr&gt;
-      &lt;/table&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;
-</code></pre>
+      &lt;/<span class="pl-ent">td</span>&gt;
+    &lt;/<span class="pl-ent">tr</span>&gt;
+      &lt;/<span class="pl-ent">table</span>&gt;
+    &lt;/<span class="pl-ent">td</span>&gt;
+  &lt;/<span class="pl-ent">tr</span>&gt;
+&lt;/<span class="pl-ent">table</span>&gt;</pre></div>
 
-<p>There is nothing particularly complex here either. To see the attributes for classes "img-container" and "img-responsive", <a href="#The%20CSS">click here</a>. </p>
+<p>There is nothing particularly complex here either. To see the attributes for classes "img-container" and "img-responsive", go to the CSS part.   </p>
 
 <h2>
 <a id="the-content-two-columns" class="anchor" href="#the-content-two-columns" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: two columns</h2>
 
-<pre><code>&lt;table class="container" width="100%" bgcolor="#ffffff" cellpadding="0" cellspacing="0"&gt;
-    &lt;tr&gt;
-    &lt;td class="content"&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span> <span class="pl-e">bgcolor</span>=<span class="pl-s1"><span class="pl-pds">"</span>#ffffff<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
+    &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span>&gt;
 
-        &lt;!--[if (gte mso 9)|(IE)]&gt;
-        &lt;table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-        &lt;![endif]--&gt;
+        <span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">        &lt;table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"&gt;</span>
+<span class="pl-c">        &lt;tr&gt;</span>
+<span class="pl-c">            &lt;td&gt;</span>
+<span class="pl-c">        &lt;![endif]--&gt;</span>
 
-        &lt;div class="offer-container"&gt;
-        &lt;table class="offer-table"&gt;
-            &lt;tr&gt;
-            &lt;td class="offer-text"&gt;
-              &lt;!-- SOME TEXT --&gt;
-            &lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-            &lt;td&gt;
-                &lt;table class="button-table" border="0" cellspacing="0" cellpadding="0" align="center"&gt;
-                &lt;tr&gt;
-                    &lt;td class="button"&gt;
-                    &lt;a href="#"&gt;This is a button&lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;/table&gt;
-            &lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/table&gt;
-        &lt;/div&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-container<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-table<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">tr</span>&gt;
+            &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-text<span class="pl-pds">"</span></span>&gt;
+              <span class="pl-c">&lt;!-- SOME TEXT --&gt;</span>
+            &lt;/<span class="pl-ent">td</span>&gt;
+            &lt;/<span class="pl-ent">tr</span>&gt;
+            &lt;<span class="pl-ent">tr</span>&gt;
+            &lt;<span class="pl-ent">td</span>&gt;
+                &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>button-table<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">tr</span>&gt;
+                    &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;This is a button&lt;/<span class="pl-ent">a</span>&gt;
+                    &lt;/<span class="pl-ent">td</span>&gt;
+                &lt;/<span class="pl-ent">tr</span>&gt;
+                &lt;/<span class="pl-ent">table</span>&gt;
+            &lt;/<span class="pl-ent">td</span>&gt;
+            &lt;/<span class="pl-ent">tr</span>&gt;
+        &lt;/<span class="pl-ent">table</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
 
-        &lt;!--[if (gte mso 9)|(IE)]&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        &lt;![endif]--&gt;
+        <span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">        &lt;/td&gt;</span>
+<span class="pl-c">        &lt;td&gt;</span>
+<span class="pl-c">        &lt;![endif]--&gt;</span>
 
-        &lt;div class="offer-container"&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-container<span class="pl-pds">"</span></span>&gt;
 
-        &lt;!-- SAME CONTENT AS ABOVE --&gt;
+        <span class="pl-c">&lt;!-- SAME CONTENT AS ABOVE --&gt;</span>
 
-        &lt;/div&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
 
-        &lt;!--[if (gte mso 9)|(IE)]&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;/table&gt;
-        &lt;![endif]--&gt;
-    &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-</code></pre>
+        <span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">            &lt;/td&gt;</span>
+<span class="pl-c">        &lt;/tr&gt;</span>
+<span class="pl-c">        &lt;/table&gt;</span>
+<span class="pl-c">        &lt;![endif]--&gt;</span>
+    &lt;/<span class="pl-ent">td</span>&gt;
+    &lt;/<span class="pl-ent">tr</span>&gt;
+&lt;/<span class="pl-ent">table</span>&gt;</pre></div>
 
-<p>OK, here things start to get a bit more interesting and complex. In this part we're dealing with two columns that are next to each other in all resolutions large enough, whereas on smartphones they're positioned one below the other.<br>
+<p>OK, here things start to get a bit more interesting and complex. In this part we're dealing with two columns that are next to each other in all resolutions large enough, whereas on smartphones they're positioned one below the other.
 For this part of the explanation, I prefer to further analyze the code. Let's start with:</p>
 
-<pre><code>&lt;!--[if (gte mso 9)|(IE)]&gt;
-  &lt;table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"&gt;
-    &lt;tr&gt;
-      &lt;td&gt;
-&lt;![endif]--&gt;
+<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">  &lt;table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"&gt;</span>
+<span class="pl-c">    &lt;tr&gt;</span>
+<span class="pl-c">      &lt;td&gt;</span>
+<span class="pl-c">&lt;![endif]--&gt;</span>
 
-    &lt;div class="offer-container"&gt; &lt;/div&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-container<span class="pl-pds">"</span></span>&gt; &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;!--[if (gte mso 9)|(IE)]&gt;
-      &lt;/td&gt;
-      &lt;td&gt;
-&lt;![endif]--&gt;
+<span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">      &lt;/td&gt;</span>
+<span class="pl-c">      &lt;td&gt;</span>
+<span class="pl-c">&lt;![endif]--&gt;</span>
 
-      &lt;div class="offer-container"&gt; &lt;/div&gt;
+      &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-container<span class="pl-pds">"</span></span>&gt; &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;!--[if (gte mso 9)|(IE)]&gt;
-      &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/table&gt;
-&lt;![endif]--&gt;
-</code></pre>
+<span class="pl-c">&lt;!--[if (gte mso 9)|(IE)]&gt;</span>
+<span class="pl-c">      &lt;/td&gt;</span>
+<span class="pl-c">    &lt;/tr&gt;</span>
+<span class="pl-c">  &lt;/table&gt;</span>
+<span class="pl-c">&lt;![endif]--&gt;</span></pre></div>
 
 <p>As we have already done at the beginning, here we use conditional comments to wrap two divs "offer-container" within a table with 100% width, only rendered by Outlook and other clients that use IE for rendering. Each div is inside a td tag. In this way we get an Outlook-friendly cage for our two columns.   </p>
 
 <p>Let's now take a look inside the div "offer-container":</p>
 
-<pre><code>&lt;div class="offer-container"&gt;
-  &lt;table class="offer-table"&gt;
-    &lt;tr&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-container<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-table<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
 
-      &lt;td class="offer-text"&gt;
-    &lt;!-- SOME TEXT --&gt;
-      &lt;/td&gt;
+      &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>offer-text<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-c">&lt;!-- SOME TEXT --&gt;</span>
+      &lt;/<span class="pl-ent">td</span>&gt;
 
-    &lt;/tr&gt;
-    &lt;tr&gt;
+    &lt;/<span class="pl-ent">tr</span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
 
-      &lt;td&gt;
-    &lt;table class="button-table" border="0" cellspacing="0" cellpadding="0" align="center"&gt;
-      &lt;tr&gt;
-        &lt;td class="button"&gt;
-          &lt;a href="#"&gt;This is a button&lt;/a&gt;
-        &lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
-      &lt;/td&gt;
+      &lt;<span class="pl-ent">td</span>&gt;
+    &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>button-table<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">tr</span>&gt;
+        &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span>&gt;
+          &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span>&gt;This is a button&lt;/<span class="pl-ent">a</span>&gt;
+        &lt;/<span class="pl-ent">td</span>&gt;
+      &lt;/<span class="pl-ent">tr</span>&gt;
+    &lt;/<span class="pl-ent">table</span>&gt;
+      &lt;/<span class="pl-ent">td</span>&gt;
 
-    &lt;/tr&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-</code></pre>
+    &lt;/<span class="pl-ent">tr</span>&gt;
+  &lt;/<span class="pl-ent">table</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
 <p>This part is a little simpler: inside "offer-container" there's a table with the "offer-table" class. We see two tr tags, one that contains a td "offert-text" tag, in which the text is inserted, while the other tr tag we add a link in the form of a button.
 To create this button, this link should be inserted into a td tag with class "button", which is contained within a table "button-table".   </p>
 
-<p>As always, the CSS do all the magic, so if you want to learn more about these classes, please <a href="#The%20CSS">click here</a></p>
+<p>As always, the CSS do all the magic, so if you want to learn more about these classes, please see the CSS explanation. </p>
 
 <h2>
 <a id="the-content-contacts" class="anchor" href="#the-content-contacts" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: contacts</h2>
 
-<pre><code>&lt;div class="contacts-container"&gt;
-    &lt;table class="contacts-table" width="100%"&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        &lt;table class="contacts-table" border="0" cellspacing="0" cellpadding="0" align="center" width="90%"&gt;
-            &lt;tr&gt;
-            &lt;td class="social"&gt;
-                &lt;h5&gt;Follow us on:&lt;/h5&gt;
-                &lt;p&gt;
-                &lt;a href="#" class="fb"&gt;&amp;nbsp;&amp;nbsp;Facebook&amp;nbsp;&amp;nbsp;&lt;/a&gt;
-                &lt;a href="#" class="tw"&gt;&amp;nbsp;&amp;nbsp;Twitter&amp;nbsp;&amp;nbsp;&lt;/a&gt;
-                &lt;a href="#" class="gp"&gt;&amp;nbsp;&amp;nbsp;Google+&amp;nbsp;&amp;nbsp;&lt;/a&gt;
-                &lt;/p&gt;
-            &lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/table&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>contacts-container<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>contacts-table<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
+        &lt;<span class="pl-ent">td</span>&gt;
+        &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>contacts-table<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>90%<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">tr</span>&gt;
+            &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>social<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">h5</span>&gt;Follow us on:&lt;/<span class="pl-ent">h5</span>&gt;
+                &lt;<span class="pl-ent">p</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>fb<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;nbsp;&amp;nbsp;</span>Facebook<span class="pl-c1">&amp;nbsp;&amp;nbsp;</span>&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>tw<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;nbsp;&amp;nbsp;</span>Twitter<span class="pl-c1">&amp;nbsp;&amp;nbsp;</span>&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>gp<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;nbsp;&amp;nbsp;</span>Google+<span class="pl-c1">&amp;nbsp;&amp;nbsp;</span>&lt;/<span class="pl-ent">a</span>&gt;
+                &lt;/<span class="pl-ent">p</span>&gt;
+            &lt;/<span class="pl-ent">td</span>&gt;
+            &lt;/<span class="pl-ent">tr</span>&gt;
+        &lt;/<span class="pl-ent">table</span>&gt;
+        &lt;/<span class="pl-ent">td</span>&gt;
+    &lt;/<span class="pl-ent">tr</span>&gt;
+    &lt;/<span class="pl-ent">table</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;div class="contacts-container"&gt;
-    &lt;table class="contacts-table" width="100%"&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-          &lt;table class="contacts-table" border="0" cellspacing="0" cellpadding="0" align="center" width="90%"&gt;
-            &lt;tr&gt;
-            &lt;td class="address"&gt;
-                &lt;h5&gt;Company name&lt;/h5&gt;                                               
-                &lt;p&gt;company address&lt;/p&gt;
-            &lt;/td&gt;
-          &lt;/tr&gt;
-        &lt;/table&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>contacts-container<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>contacts-table<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">tr</span>&gt;
+        &lt;<span class="pl-ent">td</span>&gt;
+          &lt;<span class="pl-ent">table</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>contacts-table<span class="pl-pds">"</span></span> <span class="pl-e">border</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellspacing</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">cellpadding</span>=<span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">align</span>=<span class="pl-s1"><span class="pl-pds">"</span>center<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>90%<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">tr</span>&gt;
+            &lt;<span class="pl-ent">td</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>address<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">h5</span>&gt;Company name&lt;/<span class="pl-ent">h5</span>&gt;                                               
+                &lt;<span class="pl-ent">p</span>&gt;company address&lt;/<span class="pl-ent">p</span>&gt;
+            &lt;/<span class="pl-ent">td</span>&gt;
+          &lt;/<span class="pl-ent">tr</span>&gt;
+        &lt;/<span class="pl-ent">table</span>&gt;
+        &lt;/<span class="pl-ent">td</span>&gt;
+    &lt;/<span class="pl-ent">tr</span>&gt;
+    &lt;/<span class="pl-ent">table</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
 <p><strong>IMPORTANT:</strong> this part follows the same logic as the previous one, so the two divs "contacts-container" are simply substitutes for "offer-container". I avoided repeating tables and conditional comments to avoid repeating the same pieces of code during this explanation.   </p>
 
 <p>It's a very intuitive part: the two div container "contacts" contains the link to social networks and the address of the company, labeled "social classes" and "address".
-At this point there is an important thing to note: the tables that contain the </p> with "social classes" and "address" have a 90% width, to create a margin-left and margin-right in the responsive version.
+At this point there is an important thing to note: the tables that contain the td tag with "social" and "address" classes have a 90% width, to create a margin-left and margin-right in the responsive version.</p>
 
 <h1>
 <a id="the-css" class="anchor" href="#the-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>The CSS</h1>
 
 <p>Now this is where the magic happens: below I'll show you the most important and required CSS classes</p>
 
-<pre><code>body {
-    webkit-text-size-adjust:none; /* disables automatic text size adjust */
-    -ms-text-size-adjust: 100%;   /* stops devices from changing text sizes on their defaults */
-}
-</code></pre>
+<div class="highlight highlight-css"><pre><span class="pl-ent">body</span> {
+    <span class="pl-mp">webkit-<span class="pl-s3">text</span>-<span class="pl-s3">size-adjust</span></span>:<span class="pl-sc">none</span>; <span class="pl-c">/* disables automatic text size adjust */</span>
+    <span class="pl-mp">-ms-<span class="pl-s3">text</span>-<span class="pl-s3">size-adjust</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>;   <span class="pl-c">/* stops devices from changing text sizes on their defaults */</span>
+}</pre></div>
 
 <h2>
 <a id="the-content-single-column-text--image" class="anchor" href="#the-content-single-column-text--image" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: single column text &amp; image</h2>
 
-<pre><code>.container {
-    max-width: 600px; /* max width of the newsletter */
+<div class="highlight highlight-css"><pre><span class="pl-e">.container</span> {
+    <span class="pl-mp"><span class="pl-s3">max-width</span></span>: <span class="pl-c1">600<span class="pl-k">px</span></span>; <span class="pl-c">/* max width of the newsletter */</span>
 }
 
-.img-responsive {
-    display: block; 
-    width: 100%; /* images scale with the viewport */
+<span class="pl-e">.img-responsive</span> {
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">block</span>; 
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>; <span class="pl-c">/* images scale with the viewport */</span>
 }
 
-.content {
-    text-align: center; 
-    vertical-align: top; 
-    font-size: 0; /* fix a spacing bug where space can sometimes appear between inline-block elements */
+<span class="pl-e">.content</span> {
+    <span class="pl-mp"><span class="pl-s3">text-align</span></span>: <span class="pl-sc">center</span>; 
+    <span class="pl-mp"><span class="pl-s3">vertical-align</span></span>: <span class="pl-sc">top</span>; 
+    <span class="pl-mp"><span class="pl-s3">font-size</span></span>: <span class="pl-c1">0</span>; <span class="pl-c">/* fix a spacing bug where space can sometimes appear between inline-block elements */</span>
 }
 
-.img-container center {
-    margin: 0 auto 10px; /* sets margins for full-width images */
+<span class="pl-e">.img-container</span> center {
+    <span class="pl-mp"><span class="pl-s3">margin</span></span>: <span class="pl-c1">0</span> <span class="pl-sc">auto</span> <span class="pl-c1">10<span class="pl-k">px</span></span>; <span class="pl-c">/* sets margins for full-width images */</span>
 }
 
-.text {
-    max-width: 560px;   /* sets a max-width inferior to 600px and padding left &amp; right */ 
-    padding: 0 20px;    /* in order to mantain a sort of spacing from borders of the newsletter */    
-}
-</code></pre>
+<span class="pl-e">.text</span> {
+    <span class="pl-mp"><span class="pl-s3">max-width</span></span>: <span class="pl-c1">560<span class="pl-k">px</span></span>;   <span class="pl-c">/* sets a max-width inferior to 600px and padding left &amp; right */</span> 
+    <span class="pl-mp"><span class="pl-s3">padding</span></span>: <span class="pl-c1">0</span> <span class="pl-c1">20<span class="pl-k">px</span></span>;    <span class="pl-c">/* in order to mantain a sort of spacing from borders of the newsletter */</span>    
+}</pre></div>
 
 <h2>
-<a id="the-content-two-columns-css" class="anchor" href="#the-content-two-columns-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: two columns css</h2>
+<a id="the-content-two-columns-1" class="anchor" href="#the-content-two-columns-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Content: two columns</h2>
 
-<pre><code>.offer-container {
-    width: 280px; /* sets a width less than 300 pixels to keep the distance from the borders of the newsletter */
-    display: inline-block; 
-    vertical-align: top; 
-    border:5px solid #ffffff;   /* add an extra border to separate the two boxes */
+<div class="highlight highlight-css"><pre><span class="pl-e">.offer-container</span> {
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">280<span class="pl-k">px</span></span>; <span class="pl-c">/* sets a width less than 300 pixels to keep the distance from the borders of the newsletter */</span>
+    <span class="pl-mp"><span class="pl-s3">display</span></span>: <span class="pl-sc">inline-block</span>; 
+    <span class="pl-mp"><span class="pl-s3">vertical-align</span></span>: <span class="pl-sc">top</span>; 
+    <span class="pl-mp"><span class="pl-s3">border</span></span>:<span class="pl-c1">5<span class="pl-k">px</span></span> <span class="pl-sc">solid</span> <span class="pl-c1">#ffffff</span>;   <span class="pl-c">/* add an extra border to separate the two boxes */</span>
 }
 
-.offer-table {
-    width: 100%; 
-    background: #efefef;
-}
-</code></pre>
+<span class="pl-e">.offer-table</span> {
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">100<span class="pl-k">%</span></span>; 
+    <span class="pl-mp"><span class="pl-s3">background</span></span>: <span class="pl-c1">#efefef</span>;
+}</pre></div>
 
 <h2>
 <a id="media-queries" class="anchor" href="#media-queries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Media Queries</h2>
 
-<pre><code>@media screen and (min-width: 601px) {
-    .container {
-    width: 600px!important; /* Apple Mail doesn't respect max-width, so this media query limits "container" table's size on desktop */
+<div class="highlight highlight-css"><pre><span class="pl-k">@media</span> <span class="pl-sc">screen</span> <span class="pl-k">and</span> (<span class="pl-s3">min-width</span>: <span class="pl-c1">601<span class="pl-k">px</span></span>) {
+    <span class="pl-e">.container</span> {
+    <span class="pl-mp"><span class="pl-s3">width</span></span>: <span class="pl-c1">600<span class="pl-k">px</span></span><span class="pl-k">!important</span>; <span class="pl-c">/* Apple Mail doesn't respect max-width, so this media query limits "container" table's size on desktop */</span>
     }
-}
-</code></pre>
+}</pre></div>
+
+<h1>
+<a id="compatibility-tested-with-litmus" class="anchor" href="#compatibility-tested-with-litmus" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility (tested with Litmus)</h1>
+
+<ul>
+<li>Apple Mail (Desktop)</li>
+<li>Apple Mail (iOS)</li>
+<li>Outlook 2000, 2002, 2003, 2007, 2010, 2011, 2013</li>
+<li>Thunderbird</li>
+<li>Android</li>
+<li>Gmail (Desktop)</li>
+<li>Gmail (Mobile, iOS, Android)</li>
+<li>Outlook.com</li>
+<li>Yahoo! Mail</li>
+</ul>
 
 <h1>
 <a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known issues:</h1>
@@ -337,15 +385,15 @@ At this point there is an important thing to note: the tables that contain the <
 <a id="in-outlook-2007-2010-and-2013" class="anchor" href="#in-outlook-2007-2010-and-2013" aria-hidden="true"><span class="octicon octicon-link"></span></a>In Outlook 2007, 2010 and 2013</h2>
 
 <ul>
-<li>social buttons don't fit the with of the container, so they are displayed one next to the other instead of one below the other.</li>
-<li>It seems that these clients add a little extra margin-right to the images inside the two colums. Howewer, this margin doesn't cause any malfunction.</li>
+<li>social buttons don't fit the with of the container, so they are displayed one next to another instead of one below the oher.</li>
+<li>It seems that these clients add a little extra margin-right to the images inside the two colums. However, this margin doesn't cause any malfunction.</li>
 </ul>
 
 <h1>
 <a id="useful-tutorials" class="anchor" href="#useful-tutorials" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Tutorials</h1>
 
 <ul>
-<li><a href="http://jackosborne.com/articles/responsive-email-design/">JacK Osborne: Responsive Email Design</a></li>
+<li><a href="http://jackosborne.com/articles/responsive-email-design/">Jack Osborne: Responsive Email Design</a></li>
 <li><a href="https://www.campaignmonitor.com/blog/post/4240/creating-a-centred-responsive-design-without-media-queries">Campaign Monitor: Creating a centered, responsive design without media queries</a></li>
 <li><a href="http://zurb.com/ink/">Zurb: Ink Framework</a></li>
 </ul>
@@ -354,10 +402,9 @@ At this point there is an important thing to note: the tables that contain the <
 <a id="useful-tools" class="anchor" href="#useful-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Useful Tools</h1>
 
 <ul>
-<li><a href="http://zurb.com/ink/inliner.php">Zurb: Ink CSS Inliner</a></li>
+<li>
+<a href="http://zurb.com/ink/inliner.php">Zurb: Ink CSS Inliner</a> -  This tool converts CSS to inline style.</li>
 </ul>
-
-<p><strong>This framework has been tested on Litmus</strong></p>
         </section>
 
         <aside id="sidebar">
