@@ -3,6 +3,24 @@
 Tablets and smartphones have surpassed the pc for internet browsing and reading emails. Nothing new there. Many guides and articles have already been published describing several techniques to build responsive newsletters, suitable for optimal reading on all platforms, including smartphones.  
 Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of the three guides at the bottom of this page, which I studied in depth and fused together to create something new.
 
+**Table of Contents** 
+
+- [RESPONSIVE NEWSLETTER](#responsive-newsletter)
+  - [The Content: single column text](#the-content-single-column-text)
+  - [The Content: single column image](#the-content-single-column-image)
+  - [The Content: two columns](#the-content-two-columns)
+  - [The Content: contacts](#the-content-contacts)
+- [The CSS](#the-css)
+  - [The Content: single column text & image](#the-content-single-column-text-&-image)
+  - [The Content: two columns](#the-content-two-columns-1)
+  - [Media Queries](#media-queries)
+- [Compatibility (tested with Litmus)](#compatibility-tested-with-litmus)
+- [Known issues:](#known-issues)
+  - [In Outlook 2007, 2010 and 2013](#in-outlook-2007-2010-and-2013)
+- [Useful Tutorials](#useful-tutorials)
+- [Useful Tools](#useful-tools)
+
+
 **Before we start, let's keep in mind that this framework has separated HTML and CSS files to make the code more easy to be understood and to be modified, but you will have to use inline style to get it work.
 In the "Useful Tools" section you will find an online software provided by Zurb that transforms the CSS file into inline style.**
 
