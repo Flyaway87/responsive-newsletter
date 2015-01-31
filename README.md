@@ -344,7 +344,7 @@ body {
 
 ## In Outlook 2007, 2010 and 2013 
 * social buttons don't fit the with of the container, so they are displayed one next to another instead of one below the oher.
-* It seems that these clients add a little extra margin-right to the images inside the two colums. Howewer, this margin doesn't cause any malfunction.
+* It seems that these clients add a little extra margin-right to the images inside the two colums. However, this margin doesn't cause any malfunction.
 
 # Useful Tutorials
 * [Jack Osborne: Responsive Email Design](http://jackosborne.com/articles/responsive-email-design/)
