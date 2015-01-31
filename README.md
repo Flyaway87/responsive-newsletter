@@ -279,7 +279,7 @@ Now this is where the magic happens: below I'll show you the most important and 
 	    background: #efefef;
 	}
  
- ## Media Queries
+## Media Queries
 
 	@media screen and (min-width: 601px) {
 	    .container {
