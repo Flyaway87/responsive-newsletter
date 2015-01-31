@@ -4,7 +4,7 @@ Tablets and smartphones have surpassed the pc for internet browsing and reading 
 Although a number of very good frameworks can be found online, none of them meets my needs. As such, I decided to develop my own framework. This was possible thanks to the precious help of the three guides at the bottom of this page, which I studied in depth and fused together to create something new.
 
 **Before we start, let's keep in mind that this framework has separated HTML and CSS files to make the code more easy to be understood and to be modified, but you will have to use inline style to get it work.
-In the "Useful Tools" you will find an online software provided by Zurb that transforms the CSS file into inline style.**
+In the "Useful Tools" section you will find an online software provided by Zurb that transforms the CSS file into inline style.**
 
 So, let's take a look at the foundations of the framework:
 
