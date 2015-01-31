@@ -287,7 +287,7 @@ Media Queries
 	    }
 	}
 	
-# Compatibility
+# Compatibility (tested with Litmus)
 * Apple Mail (Desktop)
 * Apple Mail (iOS)
 * Outlook 2000, 2002, 2003, 2007, 2010, 2011, 2013
@@ -311,5 +311,3 @@ Media Queries
 
 # Useful Tools
 * [Zurb: Ink CSS Inliner](http://zurb.com/ink/inliner.php)
-
-**This framework has been tested on Litmus**
