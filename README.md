@@ -239,7 +239,7 @@ Now this is where the magic happens: below I'll show you the most important and 
 	    -ms-text-size-adjust: 100%;   /* stops devices from changing text sizes on their defaults */
 	}
 
-	## The Content: single column text & image
+## The Content: single column text & image
 
 	.container {
 	    max-width: 600px; /* max width of the newsletter */
@@ -279,7 +279,7 @@ Now this is where the magic happens: below I'll show you the most important and 
 	    background: #efefef;
 	}
  
-Media Queries
+ ## Media Queries
 
 	@media screen and (min-width: 601px) {
 	    .container {
