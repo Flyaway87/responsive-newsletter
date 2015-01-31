@@ -288,15 +288,15 @@ Media Queries
 	}
 	
 # Compatibility
-Apple Mail (Desktop)
-Apple Mail (iOS)
-Outlook 2000, 2002, 2003, 2007, 2010, 2011, 2013
-Thunderbird
-Android
-Gmail (Desktop)
-Gmail (Mobile, iOS, Android)
-Outlook.com
-Yahoo! Mail
+* Apple Mail (Desktop)
+* Apple Mail (iOS)
+* Outlook 2000, 2002, 2003, 2007, 2010, 2011, 2013
+* Thunderbird
+* Android
+* Gmail (Desktop)
+* Gmail (Mobile, iOS, Android)
+* Outlook.com
+* Yahoo! Mail
 
 # Known issues:
 
