@@ -313,4 +313,4 @@ Now this is where the magic happens: below I'll show you the most important and 
 * [Zurb: Ink Framework](http://zurb.com/ink/)
 
 # Useful Tools
-* [Zurb: Ink CSS Inliner](http://zurb.com/ink/inliner.php) -  This tool convert CSS to inline style.
+* [Zurb: Ink CSS Inliner](http://zurb.com/ink/inliner.php) -  This tool converts CSS to inline style.
