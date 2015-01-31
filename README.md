@@ -151,7 +151,7 @@ For this part of the explanation, I prefer to further analyze the code. Let's st
 	  </table>
 	<![endif]-->
 
-As we have already done at the beginning, here we use conditional comments to wrap two divs "offer-container" within a table with 100% width, only rendered by Outlook and other clients that use IE for rendering. Each div is inside a <td>. In this way we get an Outlook-friendly cage for our two columns.   
+As we have already done at the beginning, here we use conditional comments to wrap two divs "offer-container" within a table with 100% width, only rendered by Outlook and other clients that use IE for rendering. Each div is inside a td tag. In this way we get an Outlook-friendly cage for our two columns.   
 
 Let's now take a look inside the div "offer-container":
 
@@ -180,8 +180,8 @@ Let's now take a look inside the div "offer-container":
 	  </table>
 	</div>
 
-This part is a little simpler: inside "offer-container" there's a table with the "offer-table" class. We see two <tr>, one that contains a <td> "offert-text", in which the text is inserted, while the other <tr> we add a link in the form of a button.
-To create this button, this link should be inserted into a <td> with class "button", which is contained within a table "button-table".   
+This part is a little simpler: inside "offer-container" there's a table with the "offer-table" class. We see two tr tags, one that contains a td "offert-text" tag, in which the text is inserted, while the other tr tag we add a link in the form of a button.
+To create this button, this link should be inserted into a td tag with class "button", which is contained within a table "button-table".   
 
 As always, the CSS do all the magic, so if you want to learn more about these classes, please see the CSS explanation. 
 
